@@ -19,6 +19,12 @@ Open a new Colab notebook and paste the following cell:
 pip install -r /content/Yet-Another-EfficientDet-Pytorch-fixed/requirements.txt && \
 python /content/Yet-Another-EfficientDet-Pytorch-fixed/efficientdet_test_colab.py
 
+import cv2, matplotlib.pyplot as plt
+
+img = cv2.imread("/content/Yet-Another-EfficientDet-Pytorch-fixed/test/img_inferred_d0_this_repo_0.jpg")
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.axis("off")
+plt.show()
 
 
 Kind regards,  
