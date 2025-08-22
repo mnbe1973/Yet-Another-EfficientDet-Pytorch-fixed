@@ -1,3 +1,18 @@
+
+## Update
+
+This repository has taken a detour via my local computer to update the original codebase to the latest versions of PyTorch and related libraries.
+
+To honor the excellent work of the original authors, all original information is preserved below.  
+
+The original repository can be found here:  
+👉 [Yet-Another-EfficientDet-Pytorch by Zylo117](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)
+
+Kind regards,  
+Magnus  
+2025-08-22
+
+
 # Yet Another EfficientDet Pytorch
 
 The pytorch re-implement of the official [EfficientDet](https://github.com/google/automl/tree/master/efficientdet) with SOTA performance in real time, original paper link: <https://arxiv.org/abs/1911.09070>
