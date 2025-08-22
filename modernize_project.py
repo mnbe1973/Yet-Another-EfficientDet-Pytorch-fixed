@@ -1,0 +1,59 @@
+import os
+import re
+import shutil
+
+# ==============================
+# Regelbank: gamla -> nya anrop
+# ==============================
+REPLACEMENTS = {
+    # PyTorch
+    r"\btorch\.autograd\.Variable\(": "torch.tensor(",
+    r"\bF\.upsample\(": "F.interpolate(",
+    r"\btorch\.nn\.functional\.upsample\(": "torch.nn.functional.interpolate(",
+    r"\bF\.tanh\(": "torch.tanh(",
+    r"\bF\.sigmoid\(": "torch.sigmoid(",
+    r"\bF\.softmax\(([^,]+)\)": r"F.softmax(\1, dim=-1)",
+
+    # TensorFlow (exempel)
+    r"\btf\.Session\(": "# DEPRECATED # DEPRECATED tf.Session() → Ta bort, använd TF2 eager mode) → Ta bort, använd TF2 eager mode",
+
+    # Sklearn (exempel)
+    r"\bsklearn\.cross_validation\b": "sklearn.model_selection",
+}
+
+# ==============================
+# Funktion för att modernisera en fil
+# ==============================
+def modernize_file(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        code = f.read()
+
+    updated_code = code
+    for pattern, replacement in REPLACEMENTS.items():
+        updated_code = re.sub(pattern, replacement, updated_code)
+
+    if code != updated_code:
+        # Gör en backup
+        backup_path = file_path + ".bak"
+        shutil.copy(file_path, backup_path)
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(updated_code)
+
+        print(f"[UPDATED] {file_path}")
+    else:
+        print(f"[OK]      {file_path} (ingen ändring)")
+
+# ==============================
+# Kör på alla .py filer
+# ==============================
+def modernize_project(root_dir="."):
+    for subdir, _, files in os.walk(root_dir):
+        for file in files:
+            if file.endswith(".py"):
+                path = os.path.join(subdir, file)
+                modernize_file(path)
+
+if __name__ == "__main__":
+    project_root = "."  # eller ange din kodmapp
+    modernize_project(project_root)
