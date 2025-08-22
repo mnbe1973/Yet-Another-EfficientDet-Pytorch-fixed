@@ -15,7 +15,6 @@ You can run this repository directly on Google Colab.
 ### Quick start
 Open a new Colab notebook and paste the following cell:
 
-```bash
 !git clone https://github.com/mnbe1973/Yet-Another-EfficientDet-Pytorch-fixed && \
 pip install -r /content/Yet-Another-EfficientDet-Pytorch-fixed/requirements.txt && \
 python /content/Yet-Another-EfficientDet-Pytorch-fixed/efficientdet_test_colab.py
