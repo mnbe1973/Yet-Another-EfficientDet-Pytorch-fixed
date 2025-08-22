@@ -20,6 +20,7 @@ pip install -r /content/Yet-Another-EfficientDet-Pytorch-fixed/requirements.txt 
 python /content/Yet-Another-EfficientDet-Pytorch-fixed/efficientdet_test_colab.py
 
 
+
 Kind regards,  
 Magnus  
 2025-08-22
