@@ -8,6 +8,19 @@ To honor the excellent work of the original authors, all original information is
 The original repository can be found here:  
 👉 [Yet-Another-EfficientDet-Pytorch by Zylo117](https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch)
 
+## Run on Google Colab
+
+You can run this repository directly on Google Colab.
+
+### Quick start
+Open a new Colab notebook and paste the following cell:
+
+```bash
+!git clone https://github.com/mnbe1973/Yet-Another-EfficientDet-Pytorch-fixed && \
+pip install -r /content/Yet-Another-EfficientDet-Pytorch-fixed/requirements.txt && \
+python /content/Yet-Another-EfficientDet-Pytorch-fixed/efficientdet_test_colab.py
+
+
 Kind regards,  
 Magnus  
 2025-08-22
